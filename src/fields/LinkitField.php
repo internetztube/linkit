@@ -50,6 +50,7 @@ class LinkitField extends Field implements PreviewableFieldInterface
     public $allowCustomText;
     public $defaultText;
     public $allowTarget;
+    public $allowEmptyText;
 
     // Static Methods
     // =========================================================================
