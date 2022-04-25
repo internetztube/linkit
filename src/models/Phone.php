@@ -34,7 +34,7 @@ class Phone extends Link
         return (string) 'tel:'.$this->value;
     }
 
-    public function rules()
+    public function rules(): array
     {
         $rules = parent::rules();
         $rules[] = [

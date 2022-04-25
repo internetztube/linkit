@@ -29,7 +29,7 @@ class Email extends Link
         return (string) 'mailto:'.$this->value;
     }
 
-    public function rules()
+    public function rules(): array
     {
         $rules = parent::rules();
         $rules[] = ['value', 'email', 'message' => Craft::t('linkit', 'Please enter a valid email address.')];

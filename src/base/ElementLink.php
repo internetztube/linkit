@@ -93,7 +93,7 @@ abstract class ElementLink extends Link
         return $element && $element->enabled && $element->enabledForSite;
     }
 
-    public function rules()
+    public function rules(): array
     {
         $rules = parent::rules();
         $rules[] = ['customSelectionLabel', 'string'];

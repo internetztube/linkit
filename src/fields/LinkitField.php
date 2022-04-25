@@ -70,14 +70,14 @@ class LinkitField extends Field implements PreviewableFieldInterface
     // Public Methods
     // =========================================================================
 
-    public function rules()
+    public function rules(): array
     {
         $rules = parent::rules();
         $rules[] = [['types'], ArrayValidator::class, 'min' => 1, 'tooFew' => Craft::t('linkit', 'You must select at least one link type.'), 'skipOnEmpty' => false];
         return $rules;
     }
 
-    public function getContentColumnType(): string
+    public function getContentColumnType(): array|string
     {
         return $this->_columnType;
     }
@@ -87,7 +87,7 @@ class LinkitField extends Field implements PreviewableFieldInterface
         return true;
     }
 
-    public function normalizeValue($value, ElementInterface $element = null)
+    public function normalizeValue(mixed $value, ?\craft\base\ElementInterface $element = null): mixed
     {
         if($value instanceof Link)
         {
@@ -128,7 +128,7 @@ class LinkitField extends Field implements PreviewableFieldInterface
         return null;
     }
 
-    public function serializeValue($value, ElementInterface $element = null)
+    public function serializeValue(mixed $value, ?\craft\base\ElementInterface $element = null): mixed
     {
         $serialized = [];
         if($value instanceof Link)
@@ -144,7 +144,7 @@ class LinkitField extends Field implements PreviewableFieldInterface
         return parent::serializeValue($serialized, $element);
     }
 
-    public function getSettingsHtml()
+    public function getSettingsHtml(): ?string
     {
         $view = Craft::$app->getView();
         $view->registerAssetBundle(FieldSettingsAssetBundle::class);
@@ -157,7 +157,7 @@ class LinkitField extends Field implements PreviewableFieldInterface
         );
     }
 
-    public function getInputHtml($value, ElementInterface $element = null): string
+    public function getInputHtml(mixed $value, ?\craft\base\ElementInterface $element = null): string
     {
         $view = Craft::$app->getView();
 
@@ -193,7 +193,7 @@ class LinkitField extends Field implements PreviewableFieldInterface
         return ['validateLinkValue'];
     }
 
-    public function isValueEmpty($value, ElementInterface $element): bool
+    public function isValueEmpty(mixed $value, ElementInterface $element): bool
     {
         return empty($value->value ?? '');
     }
@@ -207,7 +207,7 @@ class LinkitField extends Field implements PreviewableFieldInterface
         }
     }
 
-    public function getSearchKeywords($value, ElementInterface $element): string
+    public function getSearchKeywords(mixed $value, ElementInterface $element): string
     {
         if($value instanceof Link)
         {
@@ -216,7 +216,7 @@ class LinkitField extends Field implements PreviewableFieldInterface
         return '';
     }
 
-    public function getTableAttributeHtml($value, ElementInterface $element): string
+    public function getTableAttributeHtml(mixed $value, ElementInterface $element): string
     {
         if($value instanceof Link)
         {

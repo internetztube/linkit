@@ -40,7 +40,7 @@ class Facebook extends Link
         return (string) $this->value;
     }
 
-    public function rules()
+    public function rules(): array
     {
         $rules = parent::rules();
         $rules[] = [

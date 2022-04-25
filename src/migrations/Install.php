@@ -44,7 +44,7 @@ class Install extends Migration
         $projectConfig->muteEvents = true;
 
         // Locate and remove old linkit
-        $plugins = $projectConfig->get(Plugins::CONFIG_PLUGINS_KEY) ?? [];
+        $plugins = $projectConfig->get(\craft\services\ProjectConfig::PATH_PLUGINS) ?? [];
         foreach ($plugins as $pluginHandle => $pluginData)
         {
             switch ($pluginHandle)
@@ -52,21 +52,21 @@ class Install extends Migration
                 case 'fruitlinkit':
                 case 'fruit-link-it':
                 case 'fruit-linkit':
-                    $projectConfig->remove(Plugins::CONFIG_PLUGINS_KEY . '.' . $pluginHandle);
+                    $projectConfig->remove(\craft\services\ProjectConfig::PATH_PLUGINS . '.' . $pluginHandle);
                     break;
             }
         }
         $this->delete('{{%plugins}}', ['handle' => ['fruitlinkit', 'fruit-linkit', 'fruit-link-it']]);
 
         // Get the field data from the project config
-        $fieldConfigs = $projectConfig->get(Fields::CONFIG_FIELDS_KEY) ?? [];
+        $fieldConfigs = $projectConfig->get(\craft\services\ProjectConfig::PATH_FIELDS) ?? [];
         $fieldConfigsToMigrate = [];
         foreach ($fieldConfigs as $fieldUid => $fieldConfig)
         {
             if(isset($fieldConfig['type']) && $fieldConfig['type'] === 'FruitLinkIt')
             {
                 $fieldConfigsToMigrate[$fieldUid] = [
-                    'configPath' => Fields::CONFIG_FIELDS_KEY.'.'.$fieldUid,
+                    'configPath' => \craft\services\ProjectConfig::PATH_FIELDS.'.'.$fieldUid,
                     'config' => $fieldConfig
                 ];
             }

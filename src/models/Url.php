@@ -43,7 +43,7 @@ class Url extends Link
         return (string) Craft::getAlias($this->value);
     }
 
-    public function rules()
+    public function rules(): array
     {
         $rules = parent::rules();
         $rules[] = [['allowAlias','allowHash','allowPaths','allowMailto'], 'boolean'];

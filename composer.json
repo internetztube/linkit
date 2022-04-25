@@ -27,7 +27,7 @@
 		}
 	],
 	"require": {
-		"craftcms/cms": "^3.1.8"
+		"craftcms/cms": "^4.0.0-alpha"
 	},
 	"repositories": [
 		{
@@ -50,7 +50,10 @@
         "components": {
             "services": "fruitstudios\\linkit\\services\\LinkitService"
         }
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"require-dev": {
+		"craftcms/rector": "dev-main"
 	}
 }
-
-

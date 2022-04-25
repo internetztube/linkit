@@ -70,7 +70,7 @@ class User extends ElementLink
         return $this->_user;
     }
 
-    public function rules()
+    public function rules(): array
     {
         $rules = parent::rules();
         $rules[] = ['userPath', 'string'];

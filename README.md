@@ -1,5 +1,6 @@
 <p align="left"><a href="https://github.com/fruitstudios/craft-linkit" target="_blank"><img width="100" height="100" src="resources/img/linkit.svg" alt="Linkit"></a></p>
 
+
 # Linkit plugin for Craft 3
 
 One link field to rule them all...
