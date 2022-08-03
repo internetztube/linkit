@@ -55,5 +55,11 @@
 	"prefer-stable": true,
 	"require-dev": {
 		"craftcms/rector": "dev-main"
+	},
+	"config": {
+		"allow-plugins": {
+			"yiisoft/yii2-composer": true,
+			"craftcms/plugin-installer": true
+		}
 	}
 }

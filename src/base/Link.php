@@ -100,7 +100,7 @@ abstract class Link extends SavableComponent implements LinkInterface
         return $this->_ownerElement;
     }
 
-    public function extraFields()
+    public function extraFields(): array
     {
         $names = parent::extraFields();
         $names[] = 'owner';
@@ -223,7 +223,7 @@ abstract class Link extends SavableComponent implements LinkInterface
         return $this->value && $this->value != '';
     }
 
-    public function rules()
+    public function rules(): array
     {
         $rules = parent::rules();
         $rules[] = ['customLabel', 'string'];
